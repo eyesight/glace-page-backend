@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "units",
+  "info": {
+    "name": "unit",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "long": {
+      "type": "string",
+      "required": true,
+      "default": "Liter"
+    },
+    "short": {
+      "type": "string",
+      "required": true,
+      "default": "l"
+    },
+    "ingredients": {
+      "via": "unit",
+      "collection": "ingredient"
+    },
+    "nameId": {
+      "type": "uid",
+      "targetField": "short"
+    }
+  }
+}

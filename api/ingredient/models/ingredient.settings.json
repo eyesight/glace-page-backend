@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ingredients",
+  "info": {
+    "name": "ingredient-items",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "unit": {
+      "via": "ingredients",
+      "model": "unit"
+    },
+    "names": {
+      "type": "uid",
+      "targetField": "name"
+    }
+  }
+}

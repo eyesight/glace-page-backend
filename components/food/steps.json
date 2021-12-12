@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_food_steps",
+  "info": {
+    "name": "steps",
+    "icon": "carrot"
+  },
+  "options": {},
+  "attributes": {
+    "titleOfStep": {
+      "type": "string"
+    },
+    "text": {
+      "type": "richtext"
+    }
+  }
+}
