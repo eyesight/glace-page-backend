@@ -550,11 +550,14 @@
                 "steps": {
                   "type": "component"
                 },
-                "Ingredients": {
+                "ingredients": {
                   "type": "component"
                 },
-                "Portionen": {
+                "portions": {
                   "type": "integer"
+                },
+                "optional_Ingredients": {
+                  "type": "component"
                 },
                 "published_at": {
                   "type": "string"

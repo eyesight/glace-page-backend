@@ -37,13 +37,19 @@
       "repeatable": true,
       "component": "food.steps"
     },
-    "Ingredients": {
+    "ingredients": {
       "type": "component",
       "repeatable": true,
       "component": "food.ingredients"
     },
-    "Portionen": {
-      "type": "integer"
+    "portions": {
+      "type": "integer",
+      "default": 4
+    },
+    "optional_Ingredients": {
+      "type": "component",
+      "repeatable": true,
+      "component": "food.ingredients"
     }
   }
 }

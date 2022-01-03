@@ -639,11 +639,31 @@
                 },
                 "text": {
                   "type": "string"
+                },
+                "infobox": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "id"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "text": {
+                        "type": "string"
+                      }
+                    }
+                  }
                 }
               }
             }
           },
-          "Ingredients": {
+          "ingredients": {
             "type": "array",
             "items": {
               "type": "object",
@@ -725,8 +745,91 @@
               }
             }
           },
-          "Portionen": {
-            "type": "integer"
+          "portions": {
+            "type": "integer",
+            "default": 4
+          },
+          "optional_Ingredients": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "mass": {
+                  "type": "number"
+                },
+                "ingredient_item": {
+                  "required": [
+                    "id",
+                    "name"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "unit": {
+                      "type": "string"
+                    },
+                    "names": {
+                      "type": "uid"
+                    },
+                    "published_at": {
+                      "type": "string"
+                    },
+                    "created_by": {
+                      "type": "string"
+                    },
+                    "updated_by": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "unit": {
+                  "required": [
+                    "id",
+                    "long",
+                    "short"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "long": {
+                      "type": "string"
+                    },
+                    "short": {
+                      "type": "string"
+                    },
+                    "ingredients": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "nameId": {
+                      "type": "uid"
+                    },
+                    "published_at": {
+                      "type": "string"
+                    },
+                    "created_by": {
+                      "type": "string"
+                    },
+                    "updated_by": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
           },
           "published_at": {
             "type": "string",
@@ -761,11 +864,31 @@
                 },
                 "text": {
                   "type": "string"
+                },
+                "infobox": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "id"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "text": {
+                        "type": "string"
+                      }
+                    }
+                  }
                 }
               }
             }
           },
-          "Ingredients": {
+          "ingredients": {
             "type": "array",
             "items": {
               "type": "object",
@@ -847,8 +970,91 @@
               }
             }
           },
-          "Portionen": {
-            "type": "integer"
+          "portions": {
+            "type": "integer",
+            "default": 4
+          },
+          "optional_Ingredients": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "mass": {
+                  "type": "number"
+                },
+                "ingredient_item": {
+                  "required": [
+                    "id",
+                    "name"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "unit": {
+                      "type": "string"
+                    },
+                    "names": {
+                      "type": "uid"
+                    },
+                    "published_at": {
+                      "type": "string"
+                    },
+                    "created_by": {
+                      "type": "string"
+                    },
+                    "updated_by": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "unit": {
+                  "required": [
+                    "id",
+                    "long",
+                    "short"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "long": {
+                      "type": "string"
+                    },
+                    "short": {
+                      "type": "string"
+                    },
+                    "ingredients": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "nameId": {
+                      "type": "uid"
+                    },
+                    "published_at": {
+                      "type": "string"
+                    },
+                    "created_by": {
+                      "type": "string"
+                    },
+                    "updated_by": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
           },
           "published_at": {
             "type": "string",

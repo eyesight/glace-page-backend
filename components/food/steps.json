@@ -2,7 +2,8 @@
   "collectionName": "components_food_steps",
   "info": {
     "name": "steps",
-    "icon": "carrot"
+    "icon": "carrot",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -11,6 +12,11 @@
     },
     "text": {
       "type": "richtext"
+    },
+    "infobox": {
+      "type": "component",
+      "repeatable": true,
+      "component": "food.infobox"
     }
   }
 }
