@@ -17,6 +17,10 @@
     "receipts": {
       "via": "categories",
       "collection": "rezept"
+    },
+    "category_classes": {
+      "via": "categories",
+      "collection": "category-groups"
     }
   }
 }

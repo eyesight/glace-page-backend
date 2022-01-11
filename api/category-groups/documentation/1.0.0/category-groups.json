@@ -1,18 +1,19 @@
 {
   "paths": {
-    "/categories": {
+    "/category-groups": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Find all the category-groups's records",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve category-groups document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Category"
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
                   }
                 }
               }
@@ -51,7 +52,7 @@
         },
         "summary": "",
         "tags": [
-          "Category"
+          "Category-groups"
         ],
         "parameters": [
           {
@@ -194,79 +195,16 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new record",
+        "description": "Create a new category-groups record",
         "responses": {
           "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Category"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Category"
-        ],
-        "requestBody": {
-          "description": "",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewCategory"
-              }
-            }
-          }
-        }
-      }
-    },
-    "/categories/count": {
-      "get": {
-        "deprecated": false,
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "response",
+            "description": "Retrieve category-groups document(s)",
             "content": {
               "application/json": {
                 "schema": {
                   "properties": {
-                    "count": {
-                      "type": "integer"
+                    "foo": {
+                      "type": "string"
                     }
                   }
                 }
@@ -306,22 +244,36 @@
         },
         "summary": "",
         "tags": [
-          "Category"
+          "Category-groups"
         ],
-        "parameters": []
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewCategory-groups"
+              }
+            }
+          }
+        }
       }
     },
-    "/categories/{id}": {
+    "/category-groups/count": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Retrieve the number of category-groups documents",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve category-groups document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Category"
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
                 }
               }
             }
@@ -359,7 +311,64 @@
         },
         "summary": "",
         "tags": [
-          "Category"
+          "Category-groups"
+        ],
+        "parameters": []
+      }
+    },
+    "/category-groups/{id}": {
+      "get": {
+        "deprecated": false,
+        "description": "Find one category-groups record",
+        "responses": {
+          "200": {
+            "description": "Retrieve category-groups document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Category-groups"
         ],
         "parameters": [
           {
@@ -376,14 +385,18 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a record",
+        "description": "Update a single category-groups record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve category-groups document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Category"
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
                 }
               }
             }
@@ -421,7 +434,7 @@
         },
         "summary": "",
         "tags": [
-          "Category"
+          "Category-groups"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +442,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewCategory"
+                "$ref": "#/components/schemas/NewCategory-groups"
               }
             }
           }
@@ -449,10 +462,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a record",
+        "description": "Delete a single category-groups record",
         "responses": {
           "200": {
-            "description": "deletes a single record based on the ID supplied",
+            "description": "deletes a single category-groups based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -495,7 +508,7 @@
         },
         "summary": "",
         "tags": [
-          "Category"
+          "Category-groups"
         ],
         "parameters": [
           {
@@ -514,7 +527,7 @@
   },
   "components": {
     "schemas": {
-      "Category": {
+      "Category-groups": {
         "required": [
           "id"
         ],
@@ -522,10 +535,10 @@
           "id": {
             "type": "string"
           },
-          "name": {
+          "title": {
             "type": "string"
           },
-          "receipts": {
+          "categories": {
             "type": "array",
             "items": {
               "required": [
@@ -535,56 +548,16 @@
                 "id": {
                   "type": "string"
                 },
-                "title": {
+                "name": {
                   "type": "string"
                 },
-                "image": {
-                  "type": "string"
-                },
-                "categories": {
+                "receipts": {
                   "type": "array",
                   "items": {
                     "type": "string"
                   }
                 },
-                "steps": {
-                  "type": "component"
-                },
-                "ingredients": {
-                  "type": "component"
-                },
-                "portions": {
-                  "type": "integer"
-                },
-                "optional_Ingredients": {
-                  "type": "component"
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "category_classes": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "categories": {
+                "category_classes": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -608,18 +581,12 @@
           }
         }
       },
-      "NewCategory": {
+      "NewCategory-groups": {
         "properties": {
-          "name": {
+          "title": {
             "type": "string"
           },
-          "receipts": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "category_classes": {
+          "categories": {
             "type": "array",
             "items": {
               "type": "string"
@@ -639,9 +606,5 @@
       }
     }
   },
-  "tags": [
-    {
-      "name": "Category"
-    }
-  ]
+  "tags": []
 }
