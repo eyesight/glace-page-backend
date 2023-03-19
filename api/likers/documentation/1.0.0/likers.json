@@ -1,18 +1,18 @@
 {
   "paths": {
-    "/categories": {
+    "/likers": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Find all the likers's records",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve likers document(s)",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Category"
+                    "$ref": "#/components/schemas/Likers"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Category"
+          "Likers"
         ],
         "parameters": [
           {
@@ -194,14 +194,14 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new record",
+        "description": "Create a new likers record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve likers document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Category"
+                  "$ref": "#/components/schemas/Likers"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Category"
+          "Likers"
         ],
         "requestBody": {
           "description": "",
@@ -247,20 +247,20 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewCategory"
+                "$ref": "#/components/schemas/NewLikers"
               }
             }
           }
         }
       }
     },
-    "/categories/count": {
+    "/likers/count": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Retrieve the number of likers documents",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve likers document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -306,22 +306,22 @@
         },
         "summary": "",
         "tags": [
-          "Category"
+          "Likers"
         ],
         "parameters": []
       }
     },
-    "/categories/{id}": {
+    "/likers/{id}": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Find one likers record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve likers document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Category"
+                  "$ref": "#/components/schemas/Likers"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Category"
+          "Likers"
         ],
         "parameters": [
           {
@@ -376,14 +376,14 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a record",
+        "description": "Update a single likers record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve likers document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Category"
+                  "$ref": "#/components/schemas/Likers"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Category"
+          "Likers"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewCategory"
+                "$ref": "#/components/schemas/NewLikers"
               }
             }
           }
@@ -449,10 +449,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a record",
+        "description": "Delete a single likers record",
         "responses": {
           "200": {
-            "description": "deletes a single record based on the ID supplied",
+            "description": "deletes a single likers based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Category"
+          "Likers"
         ],
         "parameters": [
           {
@@ -514,9 +514,10 @@
   },
   "components": {
     "schemas": {
-      "Category": {
+      "Likers": {
         "required": [
-          "id"
+          "id",
+          "name"
         ],
         "properties": {
           "id": {
@@ -525,41 +526,49 @@
           "name": {
             "type": "string"
           },
-          "receipts": {
+          "email": {
+            "type": "string"
+          },
+          "collections": {
             "type": "array",
             "items": {
               "required": [
-                "id"
+                "id",
+                "name",
+                "password"
               ],
               "properties": {
                 "id": {
                   "type": "string"
                 },
-                "title": {
+                "name": {
                   "type": "string"
                 },
-                "image": {
+                "password": {
                   "type": "string"
                 },
-                "categories": {
+                "receipts": {
                   "type": "array",
                   "items": {
                     "type": "string"
                   }
                 },
-                "steps": {
-                  "type": "component"
+                "admin_users": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
-                "ingredients": {
-                  "type": "component"
+                "Title": {
+                  "type": "string"
                 },
-                "portions": {
-                  "type": "integer"
+                "description": {
+                  "type": "string"
                 },
-                "optional_Ingredients": {
-                  "type": "component"
+                "secret": {
+                  "type": "string"
                 },
-                "collections": {
+                "likers": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -583,65 +592,28 @@
               }
             }
           },
-          "category_classes": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "categories": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "adjektiv": {
-            "type": "string"
-          },
           "published_at": {
             "type": "string",
             "format": "date-time"
           }
         }
       },
-      "NewCategory": {
+      "NewLikers": {
+        "required": [
+          "name"
+        ],
         "properties": {
           "name": {
             "type": "string"
           },
-          "receipts": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "category_classes": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "adjektiv": {
+          "email": {
             "type": "string"
+          },
+          "collections": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "published_at": {
             "type": "string",
@@ -659,7 +631,7 @@
   },
   "tags": [
     {
-      "name": "Category"
+      "name": "Likers"
     }
   ]
 }

@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_personal_likes",
+  "info": {
+    "name": "likes",
+    "icon": "heart"
+  },
+  "options": {},
+  "attributes": {
+    "liker": {
+      "type": "string"
+    },
+    "collectionsId": {
+      "type": "string"
+    },
+    "ip": {
+      "type": "string"
+    }
+  }
+}

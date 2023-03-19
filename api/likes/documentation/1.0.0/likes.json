@@ -1,18 +1,18 @@
 {
   "paths": {
-    "/categories": {
+    "/likes": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Find all the likes's records",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve likes document(s)",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Category"
+                    "$ref": "#/components/schemas/Likes"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Category"
+          "Likes"
         ],
         "parameters": [
           {
@@ -194,14 +194,14 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new record",
+        "description": "Create a new likes record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve likes document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Category"
+                  "$ref": "#/components/schemas/Likes"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Category"
+          "Likes"
         ],
         "requestBody": {
           "description": "",
@@ -247,20 +247,20 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewCategory"
+                "$ref": "#/components/schemas/NewLikes"
               }
             }
           }
         }
       }
     },
-    "/categories/count": {
+    "/likes/count": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Retrieve the number of likes documents",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve likes document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -306,22 +306,22 @@
         },
         "summary": "",
         "tags": [
-          "Category"
+          "Likes"
         ],
         "parameters": []
       }
     },
-    "/categories/{id}": {
+    "/likes/{id}": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Find one likes record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve likes document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Category"
+                  "$ref": "#/components/schemas/Likes"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Category"
+          "Likes"
         ],
         "parameters": [
           {
@@ -376,14 +376,14 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a record",
+        "description": "Update a single likes record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve likes document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Category"
+                  "$ref": "#/components/schemas/Likes"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Category"
+          "Likes"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewCategory"
+                "$ref": "#/components/schemas/NewLikes"
               }
             }
           }
@@ -449,10 +449,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a record",
+        "description": "Delete a single likes record",
         "responses": {
           "200": {
-            "description": "deletes a single record based on the ID supplied",
+            "description": "deletes a single likes based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Category"
+          "Likes"
         ],
         "parameters": [
           {
@@ -514,7 +514,7 @@
   },
   "components": {
     "schemas": {
-      "Category": {
+      "Likes": {
         "required": [
           "id"
         ],
@@ -522,8 +522,68 @@
           "id": {
             "type": "string"
           },
-          "name": {
-            "type": "string"
+          "collections": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "name",
+                "password"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                },
+                "receipts": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "admin_users": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "Title": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "secret": {
+                  "type": "string"
+                },
+                "likers": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "likes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "receipts": {
             "type": "array",
@@ -583,38 +643,13 @@
               }
             }
           },
-          "category_classes": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "categories": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
+          "liker": {
+            "type": "string"
           },
-          "adjektiv": {
+          "collectionId": {
+            "type": "string"
+          },
+          "receiptId": {
             "type": "string"
           },
           "published_at": {
@@ -623,10 +658,13 @@
           }
         }
       },
-      "NewCategory": {
+      "NewLikes": {
         "properties": {
-          "name": {
-            "type": "string"
+          "collections": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "receipts": {
             "type": "array",
@@ -634,13 +672,13 @@
               "type": "string"
             }
           },
-          "category_classes": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+          "liker": {
+            "type": "string"
           },
-          "adjektiv": {
+          "collectionId": {
+            "type": "string"
+          },
+          "receiptId": {
             "type": "string"
           },
           "published_at": {
@@ -659,7 +697,7 @@
   },
   "tags": [
     {
-      "name": "Category"
+      "name": "Likes"
     }
   ]
 }

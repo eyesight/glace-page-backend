@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/rezepts": {
+    "/collections": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -12,7 +12,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Rezept"
+                    "$ref": "#/components/schemas/Collection"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Rezept"
+          "Collection"
         ],
         "parameters": [
           {
@@ -201,7 +201,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Rezept"
+                  "$ref": "#/components/schemas/Collection"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Rezept"
+          "Collection"
         ],
         "requestBody": {
           "description": "",
@@ -247,14 +247,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewRezept"
+                "$ref": "#/components/schemas/NewCollection"
               }
             }
           }
         }
       }
     },
-    "/rezepts/count": {
+    "/collections/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -306,12 +306,12 @@
         },
         "summary": "",
         "tags": [
-          "Rezept"
+          "Collection"
         ],
         "parameters": []
       }
     },
-    "/rezepts/{id}": {
+    "/collections/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -321,7 +321,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Rezept"
+                  "$ref": "#/components/schemas/Collection"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Rezept"
+          "Collection"
         ],
         "parameters": [
           {
@@ -383,7 +383,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Rezept"
+                  "$ref": "#/components/schemas/Collection"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Rezept"
+          "Collection"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewRezept"
+                "$ref": "#/components/schemas/NewCollection"
               }
             }
           }
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Rezept"
+          "Collection"
         ],
         "parameters": [
           {
@@ -514,85 +514,25 @@
   },
   "components": {
     "schemas": {
-      "Rezept": {
+      "Collection": {
         "required": [
-          "id"
+          "id",
+          "name",
+          "password"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "title": {
+          "name": {
             "type": "string"
           },
-          "image": {
-            "required": [
-              "id",
-              "name",
-              "hash",
-              "mime",
-              "size",
-              "url",
-              "provider"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "alternativeText": {
-                "type": "string"
-              },
-              "caption": {
-                "type": "string"
-              },
-              "width": {
-                "type": "integer"
-              },
-              "height": {
-                "type": "integer"
-              },
-              "formats": {
-                "type": "object"
-              },
-              "hash": {
-                "type": "string"
-              },
-              "ext": {
-                "type": "string"
-              },
-              "mime": {
-                "type": "string"
-              },
-              "size": {
-                "type": "number"
-              },
-              "url": {
-                "type": "string"
-              },
-              "previewUrl": {
-                "type": "string"
-              },
-              "provider": {
-                "type": "string"
-              },
-              "provider_metadata": {
-                "type": "object"
-              },
-              "related": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
+          "password": {
+            "type": "string",
+            "format": "password",
+            "minLength": 5
           },
-          "categories": {
+          "receipts": {
             "type": "array",
             "items": {
               "required": [
@@ -602,23 +542,41 @@
                 "id": {
                   "type": "string"
                 },
-                "name": {
+                "title": {
                   "type": "string"
                 },
-                "receipts": {
+                "image": {
+                  "type": "string"
+                },
+                "categories": {
                   "type": "array",
                   "items": {
                     "type": "string"
                   }
                 },
-                "category_classes": {
+                "steps": {
+                  "type": "component"
+                },
+                "ingredients": {
+                  "type": "component"
+                },
+                "portions": {
+                  "type": "integer"
+                },
+                "optional_Ingredients": {
+                  "type": "component"
+                },
+                "collections": {
                   "type": "array",
                   "items": {
                     "type": "string"
                   }
                 },
-                "adjektiv": {
-                  "type": "string"
+                "likes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "published_at": {
                   "type": "string"
@@ -632,221 +590,73 @@
               }
             }
           },
-          "steps": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "titleOfStep": {
-                  "type": "string"
-                },
-                "text": {
-                  "type": "string"
-                },
-                "infobox": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "required": [
-                      "id"
-                    ],
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      },
-                      "title": {
-                        "type": "string"
-                      },
-                      "text": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "ingredients": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "mass": {
-                  "type": "number"
-                },
-                "ingredient_item": {
-                  "required": [
-                    "id",
-                    "name"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string"
-                    },
-                    "unit": {
-                      "type": "string"
-                    },
-                    "names": {
-                      "type": "uid"
-                    },
-                    "published_at": {
-                      "type": "string"
-                    },
-                    "created_by": {
-                      "type": "string"
-                    },
-                    "updated_by": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "unit": {
-                  "required": [
-                    "id",
-                    "long",
-                    "short"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "long": {
-                      "type": "string"
-                    },
-                    "short": {
-                      "type": "string"
-                    },
-                    "ingredients": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    },
-                    "nameId": {
-                      "type": "uid"
-                    },
-                    "published_at": {
-                      "type": "string"
-                    },
-                    "created_by": {
-                      "type": "string"
-                    },
-                    "updated_by": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "portions": {
-            "type": "integer",
-            "default": 4
-          },
-          "optional_Ingredients": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "mass": {
-                  "type": "number"
-                },
-                "ingredient_item": {
-                  "required": [
-                    "id",
-                    "name"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string"
-                    },
-                    "unit": {
-                      "type": "string"
-                    },
-                    "names": {
-                      "type": "uid"
-                    },
-                    "published_at": {
-                      "type": "string"
-                    },
-                    "created_by": {
-                      "type": "string"
-                    },
-                    "updated_by": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "unit": {
-                  "required": [
-                    "id",
-                    "long",
-                    "short"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "long": {
-                      "type": "string"
-                    },
-                    "short": {
-                      "type": "string"
-                    },
-                    "ingredients": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    },
-                    "nameId": {
-                      "type": "uid"
-                    },
-                    "published_at": {
-                      "type": "string"
-                    },
-                    "created_by": {
-                      "type": "string"
-                    },
-                    "updated_by": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "collections": {
+          "admin_users": {
             "type": "array",
             "items": {
               "required": [
                 "id",
-                "name",
-                "password"
+                "email"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "firstname": {
+                  "type": "string"
+                },
+                "lastname": {
+                  "type": "string"
+                },
+                "username": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                },
+                "resetPasswordToken": {
+                  "type": "string"
+                },
+                "registrationToken": {
+                  "type": "string"
+                },
+                "isActive": {
+                  "type": "boolean"
+                },
+                "roles": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "blocked": {
+                  "type": "boolean"
+                },
+                "preferedLanguage": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "Title": {
+            "type": "string",
+            "default": "Wähle ein Glacé"
+          },
+          "description": {
+            "type": "string",
+            "default": "Wähle eine Sorte. Die mit den meisten Stimmen gewinnt."
+          },
+          "secret": {
+            "type": "string"
+          },
+          "likers": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "name"
               ],
               "properties": {
                 "id": {
@@ -855,37 +665,10 @@
                 "name": {
                   "type": "string"
                 },
-                "password": {
+                "email": {
                   "type": "string"
                 },
-                "receipts": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "admin_users": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "Title": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "secret": {
-                  "type": "string"
-                },
-                "likers": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "likes": {
+                "collections": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -952,226 +735,44 @@
           }
         }
       },
-      "NewRezept": {
+      "NewCollection": {
+        "required": [
+          "name",
+          "password"
+        ],
         "properties": {
-          "title": {
+          "name": {
             "type": "string"
           },
-          "categories": {
+          "password": {
+            "type": "string",
+            "format": "password",
+            "minLength": 5
+          },
+          "receipts": {
             "type": "array",
             "items": {
               "type": "string"
             }
           },
-          "steps": {
+          "admin_users": {
             "type": "array",
             "items": {
-              "type": "object",
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "titleOfStep": {
-                  "type": "string"
-                },
-                "text": {
-                  "type": "string"
-                },
-                "infobox": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "required": [
-                      "id"
-                    ],
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      },
-                      "title": {
-                        "type": "string"
-                      },
-                      "text": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                }
-              }
+              "type": "string"
             }
           },
-          "ingredients": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "mass": {
-                  "type": "number"
-                },
-                "ingredient_item": {
-                  "required": [
-                    "id",
-                    "name"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string"
-                    },
-                    "unit": {
-                      "type": "string"
-                    },
-                    "names": {
-                      "type": "uid"
-                    },
-                    "published_at": {
-                      "type": "string"
-                    },
-                    "created_by": {
-                      "type": "string"
-                    },
-                    "updated_by": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "unit": {
-                  "required": [
-                    "id",
-                    "long",
-                    "short"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "long": {
-                      "type": "string"
-                    },
-                    "short": {
-                      "type": "string"
-                    },
-                    "ingredients": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    },
-                    "nameId": {
-                      "type": "uid"
-                    },
-                    "published_at": {
-                      "type": "string"
-                    },
-                    "created_by": {
-                      "type": "string"
-                    },
-                    "updated_by": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
+          "Title": {
+            "type": "string",
+            "default": "Wähle ein Glacé"
           },
-          "portions": {
-            "type": "integer",
-            "default": 4
+          "description": {
+            "type": "string",
+            "default": "Wähle eine Sorte. Die mit den meisten Stimmen gewinnt."
           },
-          "optional_Ingredients": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "mass": {
-                  "type": "number"
-                },
-                "ingredient_item": {
-                  "required": [
-                    "id",
-                    "name"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string"
-                    },
-                    "unit": {
-                      "type": "string"
-                    },
-                    "names": {
-                      "type": "uid"
-                    },
-                    "published_at": {
-                      "type": "string"
-                    },
-                    "created_by": {
-                      "type": "string"
-                    },
-                    "updated_by": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "unit": {
-                  "required": [
-                    "id",
-                    "long",
-                    "short"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "long": {
-                      "type": "string"
-                    },
-                    "short": {
-                      "type": "string"
-                    },
-                    "ingredients": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    },
-                    "nameId": {
-                      "type": "uid"
-                    },
-                    "published_at": {
-                      "type": "string"
-                    },
-                    "created_by": {
-                      "type": "string"
-                    },
-                    "updated_by": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
+          "secret": {
+            "type": "string"
           },
-          "collections": {
+          "likers": {
             "type": "array",
             "items": {
               "type": "string"
@@ -1199,7 +800,7 @@
   },
   "tags": [
     {
-      "name": "Rezept"
+      "name": "Collection"
     }
   ]
 }

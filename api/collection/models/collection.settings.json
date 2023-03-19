@@ -1,0 +1,56 @@
+{
+  "kind": "collectionType",
+  "collectionName": "collections",
+  "info": {
+    "name": "collection",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "password": {
+      "type": "password",
+      "required": true,
+      "minLength": 5,
+      "unique": true
+    },
+    "receipts": {
+      "via": "collections",
+      "collection": "rezept",
+      "dominant": true
+    },
+    "admin_users": {
+      "plugin": "admin",
+      "collection": "user"
+    },
+    "Title": {
+      "type": "string",
+      "default": "Wähle ein Glacé"
+    },
+    "description": {
+      "type": "text",
+      "default": "Wähle eine Sorte. Die mit den meisten Stimmen gewinnt."
+    },
+    "secret": {
+      "type": "string"
+    },
+    "likers": {
+      "via": "collections",
+      "collection": "likers",
+      "dominant": true
+    },
+    "likes": {
+      "via": "collections",
+      "collection": "likes"
+    }
+  }
+}

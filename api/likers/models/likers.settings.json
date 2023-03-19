@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "likers",
+  "info": {
+    "name": "Likers",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "email": {
+      "type": "email"
+    },
+    "collections": {
+      "via": "likers",
+      "collection": "collection"
+    }
+  }
+}
