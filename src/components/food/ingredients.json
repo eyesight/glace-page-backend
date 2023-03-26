@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_food_ingredients",
+  "info": {
+    "displayName": "Ingredients",
+    "icon": "fish",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "mass": {
+      "type": "decimal"
+    },
+    "unit": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::unit.unit"
+    },
+    "ingredient_item": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::ingredient-item.ingredient-item"
+    }
+  }
+}

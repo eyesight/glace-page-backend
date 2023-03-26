@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "units",
+  "info": {
+    "singularName": "unit",
+    "pluralName": "units",
+    "displayName": "Unit",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "long": {
+      "type": "string",
+      "required": true
+    },
+    "short": {
+      "type": "string",
+      "required": true
+    },
+    "nameId": {
+      "type": "uid",
+      "targetField": "short"
+    },
+    "ingredients": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::ingredient-item.ingredient-item",
+      "mappedBy": "unit"
+    }
+  }
+}

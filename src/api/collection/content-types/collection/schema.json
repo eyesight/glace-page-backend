@@ -1,0 +1,63 @@
+{
+  "kind": "collectionType",
+  "collectionName": "collections",
+  "info": {
+    "singularName": "collection",
+    "pluralName": "collections",
+    "displayName": "Collection",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "password": {
+      "type": "password",
+      "required": true,
+      "minLength": 5,
+      "unique": true
+    },
+    "Title": {
+      "type": "string",
+      "default": "Wähle ein Glacé"
+    },
+    "description": {
+      "type": "text",
+      "default": "Wähle eine Sorte. Die mit den meisten Stimmen gewinnt."
+    },
+    "secret": {
+      "type": "string"
+    },
+    "receipts": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::receipt.receipt",
+      "inversedBy": "collections"
+    },
+    "admin_users": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "admin::user"
+    },
+    "likers": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::liker.liker",
+      "inversedBy": "collections"
+    },
+    "likes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::like.like",
+      "inversedBy": "collections"
+    }
+  }
+}

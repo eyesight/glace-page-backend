@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_food_infoboxes",
+  "info": {
+    "displayName": "infobox",
+    "icon": "dice-d6"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "text": {
+      "type": "richtext"
+    }
+  }
+}
