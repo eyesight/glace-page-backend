@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "likes",
+  "info": {
+    "singularName": "like",
+    "pluralName": "likes",
+    "displayName": "Like",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "liker": {
+      "type": "string"
+    },
+    "collectionId": {
+      "type": "string"
+    },
+    "receiptId": {
+      "type": "string"
+    },
+    "collections": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::collection.collection",
+      "mappedBy": "likes"
+    },
+    "receipts": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::receipt.receipt",
+      "inversedBy": "likes"
+    }
+  }
+}

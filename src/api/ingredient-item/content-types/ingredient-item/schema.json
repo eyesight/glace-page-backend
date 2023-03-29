@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ingredient_items",
+  "info": {
+    "singularName": "ingredient-item",
+    "pluralName": "ingredient-items",
+    "displayName": "Ingredient-item",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "names": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "unit": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::unit.unit",
+      "inversedBy": "ingredients"
+    }
+  }
+}

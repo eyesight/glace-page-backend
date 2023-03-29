@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "likers",
+  "info": {
+    "singularName": "liker",
+    "pluralName": "likers",
+    "displayName": "Liker",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "email": {
+      "type": "email"
+    },
+    "collections": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::collection.collection",
+      "mappedBy": "likers"
+    }
+  }
+}
