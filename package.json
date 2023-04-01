@@ -2,7 +2,7 @@
   "name": "glace-backend",
   "private": true,
   "version": "0.1.0",
-  "description": "A Strapi application",
+  "description": "Backend for my glace-app",
   "scripts": {
     "develop": "strapi develop",
     "start": "strapi start",
@@ -18,13 +18,13 @@
     "taskkill": "^5.0.0"
   },
   "author": {
-    "name": "A Strapi developer"
+    "name": "Claudia"
   },
   "strapi": {
     "uuid": "e43f6c7d-323d-44d8-9e10-391fbf453c8a"
   },
   "engines": {
-    "node": ">=14.19.1 <=18.x.x",
+    "node": "18.15.0",
     "npm": ">=6.0.0"
   },
   "license": "MIT"
