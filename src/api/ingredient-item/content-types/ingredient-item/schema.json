@@ -27,6 +27,17 @@
       "relation": "manyToOne",
       "target": "api::unit.unit",
       "inversedBy": "ingredients"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": false
     }
   }
 }
