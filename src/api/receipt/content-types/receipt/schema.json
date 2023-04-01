@@ -68,6 +68,9 @@
       "relation": "manyToMany",
       "target": "api::like.like",
       "mappedBy": "receipts"
+    },
+    "imageUrl": {
+      "type": "string"
     }
   }
 }
