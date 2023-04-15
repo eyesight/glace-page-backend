@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_pages_title_lead_images",
+  "info": {
+    "displayName": "title-lead-image"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "lead": {
+      "type": "text"
+    }
+  }
+}

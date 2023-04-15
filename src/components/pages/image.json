@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_pages_images",
+  "info": {
+    "displayName": "image"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images",
+        "videos"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "fullwidth": {
+      "type": "boolean",
+      "default": false
+    },
+    "caption": {
+      "type": "text"
+    },
+    "imageUrl": {
+      "type": "string"
+    }
+  }
+}
