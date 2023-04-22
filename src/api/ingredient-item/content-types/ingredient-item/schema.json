@@ -22,12 +22,6 @@
       "type": "uid",
       "targetField": "name"
     },
-    "unit": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::unit.unit",
-      "inversedBy": "ingredients"
-    },
     "image": {
       "type": "media",
       "multiple": false,

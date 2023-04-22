@@ -25,12 +25,6 @@
     "nameId": {
       "type": "uid",
       "targetField": "short"
-    },
-    "ingredients": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::ingredient-item.ingredient-item",
-      "mappedBy": "unit"
     }
   }
 }
