@@ -1,3 +1,17 @@
+# Setup
+
+To execute in bash a db_dump from remote server to local environment:
+
+```
+chmod +x database_sync.sh
+./database_sync.sh
+
+```
+
+For the connection to the db from remote server, you need to add connection adress in the .env file. For this, login to railway, go to postres database, open "data" and click on *connect* in the line of "Connect to the database Postgres"
+
+Copy connection URL and add it to the variable REMOTE_CONNECTION_URL
+
 # 🚀 Getting started with Strapi
 
 Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html) (CLI) which lets you scaffold and manage your project in seconds.

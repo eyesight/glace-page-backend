@@ -31,7 +31,7 @@ module.exports = ({ env }) => {
         connectionString: env('DATABASE_URL'),
         host: env('DATABASE_HOST', 'localhost'),
         port: env.int('DATABASE_PORT', 5432),
-        database: env('DATABASE_NAME', 'glace'),
+        database: env('DATABASE_NAME', 'glace-db'),
         // user: env('DATABASE_USERNAME', 'postgres'), // locally no username needed
         // password: env('DATABASE_PASSWORD', 'strapi'), // locally no pw needed
         ssl: env.bool('DATABASE_SSL', false) && {
